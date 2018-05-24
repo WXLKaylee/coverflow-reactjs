@@ -1,0 +1,29 @@
+.cover-flow-container {
+  position: relative;
+  overflow: hidden;
+}
+.cover-flow-container .cover-flow-item {
+  -webkit-transition: 1s;
+  transition: 1s;
+  position: absolute;
+  z-index: 1;
+  opacity: 0.7;
+}
+.cover-flow-container .cover-flow-item-img {
+  width: 100%;
+  height: 100%;
+}
+.cover-flow-container .cover-flow-item-label {
+  margin: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.cover-flow-container .cover-flow-item-active {
+  z-index: 2;
+  opacity: 1;
+}
