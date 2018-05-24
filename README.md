@@ -1,7 +1,9 @@
 <img src="coverflow.gif" />
+
 ### Demo
 
 <p><a href="https://wxlkaylee.github.io/coverflow-reactjs/">react coverflow example</a></p>
+
 
 *`<Coverflow`
 
