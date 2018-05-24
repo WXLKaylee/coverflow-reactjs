@@ -1,5 +1,5 @@
 {
-  "name": "react-coverflow",
+  "name": "coverflow-reactjs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WXLKaylee/react-coverflow.git"
+    "url": "git+https://github.com/WXLKaylee/coverflow-reactjs.git"
   },
   "keywords": [
     "react",
@@ -20,9 +20,9 @@
   "author": "kaylee",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/WXLKaylee/react-coverflow/issues"
+    "url": "https://github.com/WXLKaylee/coverflow-reactjs/issues"
   },
-  "homepage": "https://github.com/WXLKaylee/react-coverflow#readme",
+  "homepage": "https://github.com/WXLKaylee/coverflow-reactjs#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
