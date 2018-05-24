@@ -1,6 +1,9 @@
 ### Demo
 
 <img src="coverflow.gif" />
-<p>
-  <a href="https://gewenmao.github.io/react-numboard/" rel="nofollow">react coverflow demo</a>
-</p>
+`<Coverflow`
+  `items={ items }`
+  `style={ { margin: '0 auto', background: '#999' } }`
+  `hasLabel boxWidth={ 500 } boxHeight={ 250 }`
+  `itemWidth={ 120 } itemHeight={ 120 }`
+`/>`
