@@ -3,7 +3,9 @@
 ### params
 
 | name      | type     | required | explain | defaultValue     |
+| ---------- | :-----------: | :-----------: | :-----------: | :-----------: |
 | hasLabel     | boolean | false | Whether to include the 'label' parameters   | false    |
+| ---------- | :-----------: | :-----------: | :-----------: | :-----------: |
 | labelFontSize     | number | false  | Lable font size    | 14    |
 | ---------- | :-----------: | :-----------: | :-----------: | :-----------: |
 | items     | array | true  | Array of objects, coverflow items   | []    |
@@ -26,15 +28,15 @@
 
 ## items
 
-| name      | type     | required | explain | defaultValue     |
-| ---------- | :-----------: | :-----------: | :-----------: |
-| id     | number | true | Mark item for click operation   | undefined    |
-| ---------- | :-----------: | :-----------: | :-----------: | :-----------: |
-| src     | string | true  | Img url    | undefined    |
-| ---------- | :-----------: | :-----------: | :-----------: | :-----------: |
-| className     | string | false  | Item calssname   | null    |
-| ---------- | :-----------: | :-----------: | :-----------: | :-----------: |
-| label     | string | false  | Item label text  | null    |
+ name      | type     | required | explain | defaultValue     
+ ---------- | :-----------: | :-----------: | :-----------: | :-----------:
+ id     | number | true | Mark item for click operation   | undefined    
+ ---------- | :-----------: | :-----------: | :-----------: | :-----------: 
+ src     | string | true  | Img url    | undefined    
+ ---------- | :-----------: | :-----------: | :-----------: | :-----------: 
+ className     | string | false  | Item calssname   | null    
+ ---------- | :-----------: | :-----------: | :-----------: | :-----------: 
+ label     | string | false  | Item label text  | null    
 
 ### Demo
 
