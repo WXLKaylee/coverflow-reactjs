@@ -2,6 +2,8 @@
 
 <img src="coverflow.gif" />
 
+<p><a href="https://wxlkaylee.github.io/react-coverflow/">react coverflow example</a></p>
+
 *`<Coverflow`
 
   *`items={ items }`
