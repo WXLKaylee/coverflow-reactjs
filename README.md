@@ -12,4 +12,4 @@
   
   *`itemWidth={ 120 } itemHeight={ 120 }`
   
--`/>`
+*`/>`
