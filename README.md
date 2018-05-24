@@ -2,14 +2,8 @@
 
 ### params
 
- 表格      | 第一列     | 第二列 |ddd    
- -------- | :-----------:  | :-----------: | :------:
- 第一行     | 第一列     | 第二列   |ddd
-
 | name      | type     | required | explain | defaultValue     |
-| ---------- | :-----------: | :-----------: | :-----------: | :-----------: |
 | hasLabel     | boolean | false | Whether to include the 'label' parameters   | false    |
-| ---------- | :-----------: | :-----------: | :-----------: | :-----------: |
 | labelFontSize     | number | false  | Lable font size    | 14    |
 | ---------- | :-----------: | :-----------: | :-----------: | :-----------: |
 | items     | array | true  | Array of objects, coverflow items   | []    |
