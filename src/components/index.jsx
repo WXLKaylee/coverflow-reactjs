@@ -5,7 +5,7 @@ import './index.less';
 
 /*
  * Button 组件参数说明：
- * - hasLabel(boolean): 必填，是否包含label项，默认false，
+ * - hasLabel(boolean): 选填，是否包含label项，默认false，
  * - labelFontSize(number): 选填，lable字体大小，默认14，
  * - items(array)：必填，对象数组，coverflow项，对象包含以下key：
  *   - id(number): 必填，用来标志item，以便click操作，
@@ -14,10 +14,10 @@ import './index.less';
  *   - label(string): 选填，item label项，
  * - style(object): 可选，组件style，
  * - onClick(fuc): 可选，点击item回调,
- * - BoxWidth(number): 必选，container宽度，
- * - BoxHeight(number): 必选，container高度，
- * - ItemWidth(number): 必选，图片宽度，
- * - ItemHeight(number): 必选，图片高度，
+ * - BoxWidth(number): 可选，container宽度，
+ * - BoxHeight(number): 可选，container高度，
+ * - ItemWidth(number): 可选，图片宽度，
+ * - ItemHeight(number): 可选，图片高度，
  * - differWidth(number): 可选，item之间相隔width距离，默认40px
  * - differFromActive(number): 可选，activeitem左右相距离，默认40px
  */
