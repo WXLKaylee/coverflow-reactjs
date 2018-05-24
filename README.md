@@ -31,7 +31,6 @@
  name      | type     | required | explain | defaultValue     
  ---------- | :-----------: | :-----------: | :-----------: | :-----------:
  id     | number | true | Mark item for click operation   | undefined    
- ---------- | :-----------: | :-----------: | :-----------: | :-----------: 
  src     | string | true  | Img url    | undefined    
  ---------- | :-----------: | :-----------: | :-----------: | :-----------: 
  className     | string | false  | Item calssname   | null    
