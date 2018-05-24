@@ -2,6 +2,10 @@
 
 ### params
 
+ 表格      | 第一列     | 第二列 |ddd    
+ -------- | :-----------:  | :-----------: | :------:
+ 第一行     | 第一列     | 第二列   |ddd
+
 | name      | type     | required | explain | defaultValue     |
 | ---------- | :-----------: | :-----------: | :-----------: |
 | hasLabel     | boolean | false | Whether to include the 'label' parameters   | false    |
@@ -43,7 +47,8 @@
 <p><a href="https://wxlkaylee.github.io/coverflow-reactjs/">react coverflow example</a></p>
 
 
-```<Coverflow
+```
+<Coverflow
 
   items={ items }
   
@@ -53,4 +58,5 @@
 
   itemWidth={ 120 } itemHeight={ 120 }
 
-/>```
+/>
+```
