@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './index.less';
 
 /*
  * Button 组件参数说明：
