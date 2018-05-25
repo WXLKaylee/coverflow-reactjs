@@ -1,6 +1,12 @@
 <img src="coverflow.gif" />
 
-### params
+### Install
+
+```
+npm install coverflow-reactjs --save
+```
+
+### Params
 
 | name      | type     | required | explain | defaultValue     |
 | ---------- | :-----------: | :-----------: | :-----------: | :-----------: |
@@ -29,12 +35,21 @@
 
 <p><a href="https://wxlkaylee.github.io/coverflow-reactjs/">react coverflow example</a></p>
 
+#### index.jsx
 
 ```
+import Coverflow from 'coverflow-reactjs';
+
 <Coverflow
   items={ items }
   style={ { margin: '0 auto', background: '#999' } }
   hasLabel boxWidth={ 500 } boxHeight={ 250 }
   itemWidth={ 120 } itemHeight={ 120 }
 />
+```
+
+#### style.less
+
+```
+@import '../../node_modules/coverflow-reactjs/lib/style.css';
 ```
