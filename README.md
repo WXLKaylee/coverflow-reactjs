@@ -1,8 +1,8 @@
-### cycled false
+### cycled【false】
 
 <img src="coverflow.gif" />
 
-### cycled true
+### cycled【true】
 
 <img src="coverflow_loop.gif">
 
