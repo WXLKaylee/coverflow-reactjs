@@ -19,6 +19,7 @@ import PropTypes from 'prop-types';
  * - ItemHeight(number): 可选，图片高度，
  * - differWidth(number): 可选，item之间相隔width距离，默认40px
  * - differFromActive(number): 可选，activeitem左右相距离，默认40px
+ * - cycled(boolean): 可选，是否需要循环播放，默认false
  */
 
 export default class Coverflow extends Component {
@@ -34,6 +35,7 @@ export default class Coverflow extends Component {
     itemHeight: 100,
     differWidth: 40,
     differFromActive: 40,
+    cycled: false,
   }
 
   static propTypes = {
@@ -48,6 +50,7 @@ export default class Coverflow extends Component {
     itemHeight: PropTypes.number,
     differWidth: PropTypes.number,
     differFromActive: PropTypes.number,
+    cycled: PropTypes.boolean,
   }
 
   constructor(props) {
@@ -67,50 +70,80 @@ export default class Coverflow extends Component {
     if (this.props.onClick) this.props.onClick(index);
   }
 
-  // sortByZindex(items, activeIndex) {
-  //   if (!items.length) return items;
-  //
-  //   // 保留原有index
-  //   const itemIndexs = items.map((item, index) => {
-  //     item.index = index;
-  //     return item;
-  //   });
-  //   let leftItems = itemIndexs.slice(0, activeIndex).map;
-  //   let rightItems = itemIndexs.slice(activeIndex).reverse();
-  //   return [].concat(leftItems, rightItems);
-  // }
+  // 循环情况下重新排序并返回每一项的differ
+  sortCycled(items, activeIndex) {
+    if (!items.length) return {};
+    
+    let result = {};
+    let itemsTemp = [].concat(items, items);
+    const range = Math.floor(items.length / 2);
+    let cuttingIndex;
+    
+    if (activeIndex < range) {
+      cuttingIndex = items.length + activeIndex;
+    } else {
+      cuttingIndex = activeIndex;
+    }
+    // 以cuttingIndex为基准左右截取range长度
+    let activeList = itemsTemp.slice(cuttingIndex - range, cuttingIndex + range + 1);
+    activeList.forEach((item, index) => {
+      result[ item.id ] = index - range;
+    } );
+    
+    console.log(result);
+    return result;
+  }
+  
+  getStyle(item, index, itemsCycled) {
+    const { items, boxWidth, boxHeight, itemWidth,
+      itemHeight, differWidth, differFromActive, cycled } = this.props;
+    const { activeId, activeIndex } = this.state;
+    let style = {};
+    const maxZIndex = items.length;
+    // cycled is 'false'
+    let differ = index - activeIndex;
+    // cycled is 'true'
+    if (cycled) {
+      differ = itemsCycled[ item.id ];
+    }
+    
+    const differFromAct = !differ ? 0 : differ / Math.abs(differ) * differFromActive;
+    const left = (boxWidth - itemWidth) / 2 + differ * differWidth + differFromAct;
+    const top = (boxHeight - itemHeight) / 2;
+    style.zIndex = maxZIndex - Math.abs(differ);
+    style.transformText = item.id === activeId
+      ? `translate(${left}px, ${top}px) scale(1, 1)`
+      : `translate(${left}px, ${top}px) scale(0.7, 0.7)`;
+    style.boxShadow = differ > 0 ?
+      '15px 10px 20px rgba(0,0,0,0.7)' : '-15px 10px 20px rgba(0,0,0,0.7)';
+    
+    return style;
+  }
 
   render() {
     const { style, items, hasLabel, boxWidth, boxHeight,
-    itemWidth, itemHeight, differWidth, labelFontSize, differFromActive } = this.props;
+    itemWidth, itemHeight, differWidth, labelFontSize,
+    differFromActive, cycled } = this.props;
     const { activeId, activeIndex } = this.state;
+    
+    let itemsCycled = items;
+    if(cycled) itemsCycled = this.sortCycled(items, activeIndex);
 
     return (
       <div className="cover-flow-container"
         style={ { width: boxWidth, height: boxHeight, ...style } }>
         { items.map((item, index) => {
-          const maxZIndex = items.length;
-          const differ = index - activeIndex;
-          const differFromAct = !differ ? 0 : differ / Math.abs(differ) * differFromActive;
-          const left = (boxWidth - itemWidth) / 2 + differ * differWidth + differFromAct;
-          const top = (boxHeight - itemHeight) / 2;
-          const zIndex = maxZIndex - Math.abs(differ);
-          const transformText = item.id === activeId
-            ? `translate(${left}px, ${top}px) scale(1, 1)`
-            : `translate(${left}px, ${top}px) scale(0.7, 0.7)`;
-          const boxShadow = differ > 0 ?
-            '15px 10px 20px rgba(0,0,0,0.7)' : '-15px 10px 20px rgba(0,0,0,0.7)';
-
+          const styleItem = this.getStyle(item, index, itemsCycled);
 
           return (<div key={ item.id }
             onClick={ () => this.handleClick(item.id, index) }
             style={ {
               width: itemWidth,
               height: itemHeight,
-              zIndex,
-              transform: transformText,
-              WebkitTransform: transformText,
-              boxShadow,
+              zIndex: styleItem.zIndex,
+              transform: styleItem.transformText,
+              WebkitTransform: styleItem.transformText,
+              boxShadow: styleItem.boxShadow,
             } }
             className={ `cover-flow-item ${item.className || ''}
             ${item.id === activeId ? 'cover-flow-item-active' : ''}` }>

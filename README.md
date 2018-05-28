@@ -1,4 +1,10 @@
+### cycled false
+
 <img src="coverflow.gif" />
+
+### cycled true
+
+<img src="coverflow_loop.gif">
 
 ### Install
 
@@ -21,6 +27,7 @@ npm install coverflow-reactjs --save
 | ItemHeight     | number | false  | The height of the img   | 100    |
 | differWidth     | number | false  | The distance between items   | 40    |
 | differFromActive     | number | false  | Activeitem distance from left/right item   | 40    |
+| cycled     | boolean | false  | Whether loop playback   | false    |
 
 ## items
 
